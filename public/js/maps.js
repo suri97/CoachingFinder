@@ -2,7 +2,7 @@
  * Created by suransh on 25/10/16.
  */
 
-var map; function CreateMarker(pos,name) {}
+var map;
 function initMap() {
 
     map = new google.maps.Map(document.getElementById('map'), {
@@ -57,10 +57,10 @@ $('#submit').click(function () {
     $.get('/show', {type:type}, (rows) => {
         var data = "";
         for (var i = 0;i<rows.length;i++) {
-            data += '<li >' + rows[i].name + '</li>';
+            data += '<li ><a target="_blank" href="' + rows[i].link + '">'+rows[i].name+'</a></li>';
             addMarker(rows[i].lat,rows[i].lng,rows[i].name);
         }
-        $('#list').append(data);
+        $('#list').html(data);
     });
 
 });
