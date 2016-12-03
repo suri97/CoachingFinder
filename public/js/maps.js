@@ -19,7 +19,7 @@ function initMap() {
 
             marker = new google.maps.Marker({
                 map: map,
-                draggable: true,
+                draggable: false,
                 animation: google.maps.Animation.DROP,
                 position: pos,
                 title: 'Current Location',
@@ -54,11 +54,11 @@ function addMarker(lat,lng,name){
 
 $('#submit').click(function () {
     var type = $('#type').val();
-    $.get('/show', {type:type}, (rows) => {
+    $.get('/show', {type:type}, (results) => {
         var data = "";
-        for (var i = 0;i<rows.length;i++) {
-            data += '<li ><a target="_blank" href="' + rows[i].link + '">'+rows[i].name+'</a></li>';
-            addMarker(rows[i].lat,rows[i].lng,rows[i].name);
+        for (var i = 0;i<results.length;i++) {
+            data += '<li ><a target="_blank" href="' + results[i].link + '">'+results[i].name+'</a></li>';
+            addMarker(results[i].lat,results[i].lng,results[i].name);
         }
         $('#list').html(data);
     });

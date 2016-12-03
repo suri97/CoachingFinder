@@ -2,34 +2,21 @@
  * Created by suransh on 26/10/16.
  */
 
-const mysql = require('mysql');
+var Parse = require('parse/node');
 
-/*
-
- CREATE TABLE Centres ( id int NOT NULL AUTO_INCREMENT PRIMARY KEY, name text, lat FLOAT, lng FLOAT, type text );
-
- */
-
-var getConnection = function () {
-
-    var connection = mysql.createConnection({
-        host: 'localhost',
-        user: 'newuser',
-        password: 'newpassword',
-        database: 'newdatabase'
-    });
-    connection.connect();
-
-    return connection;
-};
+Parse.initialize("qQtOBb8QuyE2oXVXrnF7U2FRql2uYVcA7wFxUwEu","kn0cHUBQfxj0Yk984JQwKBTJG7G3NjHNYDTcrTXf");
+Parse.serverURL = 'https://parseapi.back4app.com/';
 
 module.exports = {
   show: (type,cb) => {
-      let connection = getConnection();
-      connection.query('SELECT * FROM Centres WHERE type="' + type + '"', (err,rows,fields) => {
-          cb(rows);
-      });
-      connection.end();
+      var Centres = Parse.Object.extend("Centers");
+      var query = new Parse.Query(Centres);
+      query.equalTo("type",type);
+      query.find({
+          success: function (results) {
+              cb(results);
+          }
+      })
   }
 }
 ;

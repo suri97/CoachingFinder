@@ -16,9 +16,8 @@ app.use('/',express.static(__dirname + '/public'));
 app.get('/show', function (req,res) {
     var type = req.query.type;
     console.log(req.query.type);
-    database.show( type, (rows) => {
-        console.log(rows.length);
-    res.send(rows);
+    database.show( type, (results) => {
+    res.send(results);
 })
 });
 
