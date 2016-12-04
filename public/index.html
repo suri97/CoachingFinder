@@ -6,34 +6,32 @@
     <link rel="stylesheet" href="css/index.css">
     <title>Coaching Finder</title>
     <script src="js/jquery-3.1.1.js"></script>
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <script src = "js/bootstrap.js"></script>
+    <!--<link rel="stylesheet" href="css/bootstrap.css">-->
+    <!--<script src = "js/bootstrap.js"></script>-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
 </head>
-<body style="padding: 7%">
+<body style="">
 
-<nav class="navbar navbar-inverse navbar-fixed-top" style="z-index: 1000">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#" style="font-family: 'sans-serif'; font-style: italic">Coaching Finder</a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact Us</a></li>
-            </ul>
-        </div>
-    </div>
+<nav class="navbar navbar-dark bg-inverse">
+    <a class="navbar-brand" href="#" style="font-family: cursive">Coaching Finder</a>
+    <ul class="nav navbar-nav float-xs-right">
+        <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">About Us</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Contact Us</a>
+        </li>
+    </ul>
 </nav>
-<div id = "map" style="height: 400px; width: 100%"></div>
+<br> <br>
+<div id = "map" style="height: 400px; width: 90%; padding-left: 5%; padding-right: 5%" ></div>
 <br> <br>
 
-<div class="row" style="margin-left: 10%">
+<div class="row" style="margin-left: 15%">
     <div class="col-lg-3">
         <div class="form-group">
             <input type="number" id = "radius" class="form-control" placeholder="Radius">
@@ -50,12 +48,13 @@
 </div>
 
 <br>
-<ul id = "list" style="font-size: 2em">
+<div class="container" style="display: inline-flex;flex-flow: row;align-content: space-between ">
 
-</ul>
+
+</div>
 
 <script src = "js/maps.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-S2adZsLc3zqfM8SyU5w3Hu7KHv1G1tI&callback=initMap&region=IN"
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-S2adZsLc3zqfM8SyU5w3Hu7KHv1G1tI&libraries=places&callback=initMap&region=IN"
         async defer></script>
 </body>
 </html>
